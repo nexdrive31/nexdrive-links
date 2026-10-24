@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ND NEX DRIVE · Liens</title>
+  <meta name="description" content="ND NEX DRIVE, location de voiture premium à Oran. Réservation WhatsApp, flotte, appels, Instagram, TikTok et itinéraire.">
+  <meta name="theme-color" content="#0a0a0b">
+  <meta property="og:title" content="ND NEX DRIVE · Location de voiture premium à Oran">
+  <meta property="og:description" content="Ferrari, Rolls-Royce, Classe G, Porsche… Réservez en un message.">
+  <meta property="og:image" content="img/ferrari-1.webp">
+  <link rel="icon" href="img/logo.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wdth,wght@0,100..125,600..900;1,100..125,800..900&family=Manrope:wght@500;600;700;800&family=Cairo:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0b; --card: #151517; --card-2: #1d1d21; --line: rgba(255,255,255,.1);
+      --text: #f4f4f2; --muted: rgba(244,244,242,.66); --orange: #ff6a1a; --orange-2: #ff8540; --ok: #3ddc84;
+      --display: "Saira", "Manrope", sans-serif; --body: "Manrope", system-ui, sans-serif;
+      --ease: cubic-bezier(.16, 1, .3, 1); --skew: -10deg;
+    }
+    :root[dir="rtl"] { --display: "Cairo", sans-serif; --body: "Cairo", sans-serif; --skew: 10deg; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { color-scheme: dark; -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: rgba(255,106,26,.2); }
+    body { margin: 0; min-height: 100svh; background: var(--bg); color: var(--text); font-family: var(--body); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+    a, button { touch-action: manipulation; }
+    img, svg { display: block; max-width: 100%; }
+    :focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; border-radius: 8px; }
+    .nums { font-variant-numeric: tabular-nums; unicode-bidi: isolate; direction: ltr; }
+    [dir="rtl"] .flip { transform: scaleX(-1); }
+
+    /* background: the storefront at night, blurred, with an orange glow */
+    .bg { position: fixed; inset: -8%; z-index: -1; background: url("img/shop-1.webp") center / cover; filter: blur(34px) brightness(.28) saturate(1.4); transform: scale(1.1); }
+    .bg::after { content: ""; position: absolute; inset: 0; background: radial-gradient(50% 40% at 50% 8%, rgba(255,106,26,.35), transparent 70%), linear-gradient(180deg, rgba(10,10,11,.2), var(--bg) 85%); }
+
+    .page { width: min(100%, 520px); margin-inline: auto; padding: max(18px, env(safe-area-inset-top)) 18px calc(40px + env(safe-area-inset-bottom)); }
+
+    /* top bar */
+    .top { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .ghost { display: inline-flex; align-items: center; gap: 8px; height: 42px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px; background: rgba(21,21,23,.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); font-weight: 700; font-size: 14px; transition: border-color .2s, background-color .2s; }
+    .ghost:hover { border-color: rgba(255,255,255,.35); background: var(--card-2); }
+    .ghost svg { width: 18px; height: 18px; }
+    .lang-btn { font-family: "Cairo", var(--body); }
+
+    /* cover + identity */
+    .cover { position: relative; aspect-ratio: 16 / 10; border-radius: 22px; overflow: hidden; background: #111; box-shadow: 0 30px 60px -30px #000; }
+    .cover img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; animation: drift 14s var(--ease) infinite alternate; }
+    .cover__shade { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, rgba(10,10,11,.92)); }
+    .logo { position: absolute; left: 50%; bottom: 16px; width: 72%; transform: translateX(-50%); mix-blend-mode: screen; }
+    .logo img { width: 100%; }
+    .who { text-align: center; margin-top: 18px; }
+    h1 { margin: 0; font-family: var(--display); font-weight: 800; font-stretch: 112%; text-transform: uppercase; font-size: clamp(26px, 7vw, 34px); line-height: 1; letter-spacing: -.01em; }
+    h1 em { color: var(--orange); font-style: italic; }
+    [dir="rtl"] h1 { font-stretch: normal; font-weight: 900; line-height: 1.3; }
+    [dir="rtl"] h1 em { font-style: normal; }
+    .tagline { margin: 8px 0 0; color: var(--muted); font-weight: 600; }
+    .pill { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 7px 14px; border: 1px solid var(--line); border-radius: 999px; background: rgba(21,21,23,.7); font-size: 14px; font-weight: 700; }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--ok); animation: pulse 2s infinite; }
+
+    /* social icons */
+    .social { display: flex; justify-content: center; gap: 12px; margin: 22px 0 26px; }
+    .social a { width: 50px; height: 50px; display: grid; place-items: center; border-radius: 50%; background: var(--card); border: 1px solid var(--line); transition: transform .25s var(--ease), background-color .2s, border-color .2s; }
+    .social a:hover { transform: translateY(-3px); background: var(--orange); border-color: var(--orange); color: #111; }
+    .social svg { width: 22px; height: 22px; }
+
+    /* links */
+    .links { display: grid; gap: 12px; }
+    .link { position: relative; display: flex; align-items: center; gap: 14px; min-height: 66px; padding: 10px 16px 10px 10px; border-radius: 16px; background: var(--card); border: 1px solid var(--line); overflow: hidden; transition: transform .2s var(--ease), border-color .2s, background-color .2s; }
+    [dir="rtl"] .link { padding: 10px 10px 10px 16px; }
+    .link:hover { border-color: rgba(255,106,26,.6); background: var(--card-2); transform: translateY(-2px); }
+    .link:active { transform: scale(.98); }
+    .link::after { content: ""; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.14), transparent); transform: skewX(-20deg); transition: left .7s var(--ease); pointer-events: none; }
+    .link:hover::after { left: 130%; }
+    .ico { flex: none; width: 46px; height: 46px; display: grid; place-items: center; border-radius: 12px; background: var(--card-2); color: var(--orange); }
+    .ico svg { width: 22px; height: 22px; }
+    .txt { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.25; }
+    .txt b { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 17px; letter-spacing: .02em; }
+    [dir="rtl"] .txt b { letter-spacing: 0; font-size: 18px; }
+    .txt small { color: var(--muted); font-size: 14px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .go { flex: none; width: 20px; height: 20px; color: var(--muted); transition: transform .25s var(--ease), color .2s; }
+    .link:hover .go { color: var(--orange); transform: translateX(3px); }
+    [dir="rtl"] .link:hover .go { transform: scaleX(-1) translateX(3px); }
+
+    /* primary: WhatsApp booking, slanted orange like the site */
+    .link--main { min-height: 74px; background: var(--orange); border-color: var(--orange); color: #111; transform: skewX(var(--skew)); border-radius: 10px; }
+    .link--main > * { transform: skewX(calc(var(--skew) * -1)); }
+    .link--main .ico { background: rgba(0,0,0,.14); color: #111; }
+    .link--main .txt b { font-size: 16px; letter-spacing: .01em; white-space: nowrap; }
+    .link--main .txt small { color: rgba(17,17,17,.75); }
+    .link--main .go { color: #111; }
+    .link--main:hover { background: var(--orange-2); border-color: var(--orange-2); transform: skewX(var(--skew)) translateY(-2px); box-shadow: 0 14px 40px -12px rgba(255,106,26,.75); }
+    .link--main:active { transform: skewX(var(--skew)) scale(.98); }
+
+    /* featured card with a photo */
+    .feature { position: relative; display: block; aspect-ratio: 16 / 11; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); isolation: isolate; }
+    .feature img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform 1s var(--ease); }
+    .feature::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,.9)); }
+    .feature:hover img { transform: scale(1.06); }
+    .feature__body { position: absolute; inset-inline: 0; bottom: 0; padding: 18px; }
+    .tag { display: inline-block; padding: 4px 10px; background: var(--orange); color: #111; font-family: var(--display); font-weight: 800; font-style: italic; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; transform: skewX(var(--skew)); }
+    [dir="rtl"] .tag { font-style: normal; letter-spacing: 0; }
+    .feature h2 { margin: 8px 0 2px; font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 28px; line-height: 1; }
+    .feature h2 em { color: var(--orange); }
+    .feature p { margin: 0; color: rgba(244,244,242,.82); font-size: 15px; font-weight: 600; }
+
+    .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .duo .feature { aspect-ratio: 4 / 5; }
+    .duo .feature h2 { font-size: 21px; }
+
+    /* fleet strip */
+    .strip-head { display: flex; justify-content: space-between; align-items: baseline; margin: 30px 0 12px; }
+    .strip-head h2 { margin: 0; font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 20px; }
+    .strip-head a { color: var(--orange); font-weight: 800; font-size: 14px; }
+    .strip { overflow: hidden; margin-inline: -18px; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+    .strip__track { display: flex; gap: 10px; width: max-content; animation: slide 40s linear infinite; }
+    .strip:hover .strip__track { animation-play-state: paused; }
+    [dir="rtl"] .strip__track { animation-name: slide-rtl; }
+    .strip figure { margin: 0; position: relative; width: 150px; aspect-ratio: 4 / 5; border-radius: 14px; overflow: hidden; background: var(--card); }
+    .strip img { width: 100%; height: 100%; object-fit: cover; }
+    .strip figcaption { position: absolute; inset-inline: 0; bottom: 0; padding: 26px 10px 8px; background: linear-gradient(transparent, rgba(0,0,0,.85)); font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 13px; line-height: 1.1; }
+
+    /* tools: save contact, QR, share */
+    .tools { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 26px; }
+    .tool { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 14px 6px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); font-weight: 700; font-size: 14px; text-align: center; transition: border-color .2s, background-color .2s, transform .2s var(--ease); }
+    .tool:hover { border-color: rgba(255,106,26,.6); background: var(--card-2); transform: translateY(-2px); }
+    .tool svg { width: 24px; height: 24px; color: var(--orange); }
+
+    .qr { margin-top: 12px; padding: 18px; border-radius: 16px; background: #fff; color: #111; text-align: center; }
+    .qr[hidden] { display: none; }
+    .qr__code { display: grid; place-items: center; min-height: 220px; }
+    .qr__code img, .qr__code canvas { width: 220px !important; height: 220px !important; image-rendering: pixelated; }
+    .qr p { margin: 10px 0 0; font-weight: 700; font-size: 14px; }
+
+    .foot { margin-top: 30px; text-align: center; color: var(--muted); font-size: 14px; }
+    .foot a { color: var(--text); font-weight: 700; }
+    .toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom)); z-index: 10; padding: 12px 18px; border-radius: 999px; background: var(--text); color: var(--bg); font-weight: 800; font-size: 14px; transform: translate(-50%, calc(100% + 60px)); visibility: hidden; transition: transform .45s var(--ease), visibility 0s .45s; }
+    .toast.is-on { transform: translate(-50%, 0); visibility: visible; transition: transform .45s var(--ease); }
+
+    /* entrance: everything rises in order */
+    @media (prefers-reduced-motion: no-preference) {
+      .in { opacity: 0; transform: translateY(18px); animation: rise .8s var(--ease) forwards; animation-delay: calc(var(--i, 0) * 70ms + 80ms); }
+      .link--main.in { transform: skewX(var(--skew)) translateY(18px); animation-name: rise-skew; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+    }
+    @keyframes rise { to { opacity: 1; transform: none; } }
+    @keyframes rise-skew { to { opacity: 1; transform: skewX(var(--skew)); } }
+    @keyframes drift { from { transform: scale(1.12); } to { transform: scale(1); } }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(61,220,132,.6); } 70% { box-shadow: 0 0 0 8px rgba(61,220,132,0); } 100% { box-shadow: 0 0 0 0 rgba(61,220,132,0); } }
+    @keyframes slide { to { transform: translateX(-50%); } }
+    @keyframes slide-rtl { to { transform: translateX(50%); } }
+  </style>
+  <script>try { if (localStorage.getItem('nd-lang') === 'ar') { document.documentElement.lang = 'ar'; document.documentElement.dir = 'rtl'; } } catch (e) {}</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3Z"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></symbol>
+    <symbol id="i-tt" viewBox="0 0 24 24"><path fill="currentColor" d="M16.6 2h-3.3v13.3a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9.1a6.2 6.2 0 1 0 5.3 6.2V8.6a7.6 7.6 0 0 0 4.4 1.4V6.7a4.4 4.4 0 0 1-4.4-4.4Z"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 16H3v-4l2-5h12l3 5h1v4h-2M7 16h8"/><circle cx="7" cy="16.5" r="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="16.5" r="2" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-web" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></symbol>
+    <symbol id="i-go" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 21a8 8 0 0 1 16 0M19 4v4M17 6h4"/></symbol>
+    <symbol id="i-qr" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4z"/><path fill="currentColor" d="M14 14h3v3h-3zM17 17h3v3h-3zM14 18h2v2h-2zM18 14h2v2h-2z"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="6" cy="12" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="19" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="m8.2 10.8 7.6-4.4M8.2 13.2l7.6 4.4"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></symbol>
+  </defs>
+</svg>
+
+<div class="bg" aria-hidden="true"></div>
+
+<main class="page">
+  <div class="top in" style="--i:0">
+    <span class="pill"><span class="dot" aria-hidden="true"></span><span data-t="open">Ouvert 24 h/24 · Oran</span></span>
+    <button class="ghost lang-btn" type="button" data-lang aria-label="Lire en arabe"><svg aria-hidden="true"><use href="#i-globe"/></svg><span data-lang-label>عربي</span></button>
+  </div>
+
+  <header class="in" style="--i:1">
+    <div class="cover">
+      <img src="img/shop-1.webp" width="1098" height="1100" alt="La façade de l'agence NEX DRIVE, la nuit" fetchpriority="high">
+      <div class="cover__shade" aria-hidden="true"></div>
+      <div class="logo"><img src="img/logo.webp" width="1030" height="258" alt="ND NEX DRIVE"></div>
+    </div>
+    <div class="who">
+      <h1 translate="no">ND <em>NEX DRIVE</em></h1>
+      <p class="tagline" data-t="tagline">Location de voiture premium à Oran</p>
+    </div>
+  </header>
+
+  <nav class="social in" style="--i:2" aria-label="Réseaux">
+    <a href="https://wa.me/213564449536" data-wa aria-label="WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+    <a href="https://www.instagram.com/nexdrive.dz/" target="_blank" rel="noopener" aria-label="Instagram @nexdrive.dz"><svg aria-hidden="true"><use href="#i-ig"/></svg></a>
+    <a href="https://www.tiktok.com/@nexdrive31" target="_blank" rel="noopener" aria-label="TikTok @nexdrive31"><svg aria-hidden="true"><use href="#i-tt"/></svg></a>
+    <a href="tel:0564449536" aria-label="Appeler 0564 44 95 36"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
+    <a href="https://www.google.com/maps/place/ND+NEX+DRIVE+location+de+voiture+premium/@35.7255745,-0.5934612,17z/data=!3m1!4b1!4m6!3m5!1s0xd7e63002df54d19:0x782a09088b7dde0d!8m2!3d35.7255745!4d-0.5934612" target="_blank" rel="noopener" aria-label="Itinéraire Google Maps"><svg aria-hidden="true"><use href="#i-pin"/></svg></a>
+  </nav>
+
+  <div class="links">
+    <a class="link link--main in" style="--i:3" href="https://wa.me/213564449536" data-wa>
+      <span class="ico"><svg aria-hidden="true"><use href="#i-wa"/></svg></span>
+      <span class="txt"><b data-t="book">Réserver sur WhatsApp</b><small data-t="bookSub">Tarif et dispo en un message</small></span>
+      <svg class="go flip" aria-hidden="true"><use href="#i-go"/></svg>
+    </a>
+
+    <a class="feature in" style="--i:4" href="https://nexdrive-oran.netlify.app/#ferrari" target="_blank" rel="noopener">
+      <img src="img/ferrari-1.webp" width="884" height="1100" alt="Ferrari 296 GTS noir mat de NEX DRIVE, la nuit à Oran" loading="lazy">
+      <div class="feature__body">
+        <span class="tag" data-t="new">Nouveauté 2026</span>
+        <h2 translate="no">Ferrari <em>296 GTS</em></h2>
+        <p data-t="ferrari">830 ch · V6 hybride · 0–100 en 2,9 s</p>
+      </div>
+    </a>
+
+    <div class="duo in" style="--i:5">
+      <a class="feature" href="https://nexdrive-oran.netlify.app/#mariage" target="_blank" rel="noopener">
+        <img src="img/g63-wed.webp" width="884" height="1100" alt="Mercedes-AMG G 63 décorée pour un mariage" loading="lazy">
+        <div class="feature__body"><h2 data-t="wed">Mariages</h2><p data-t="wedSub">Classe G, Rolls-Royce</p></div>
+      </a>
+      <a class="feature" href="https://nexdrive-oran.netlify.app/#flotte" target="_blank" rel="noopener">
+        <img src="img/rolls-1.webp" width="884" height="1100" alt="Rolls-Royce Ghost blanche devant l'agence" loading="lazy">
+        <div class="feature__body"><h2 data-t="fleet">La flotte</h2><p data-t="fleetSub">9 voitures</p></div>
+      </a>
+    </div>
+
+    <a class="link in" style="--i:6" href="tel:0564449536">
+      <span class="ico"><svg aria-hidden="true"><use href="#i-phone"/></svg></span>
+      <span class="txt"><b data-t="call">Appeler</b><small class="nums">0564 44 95 36</small></span>
+      <svg class="go flip" aria-hidden="true"><use href="#i-go"/></svg>
+    </a>
+    <a class="link in" style="--i:7" href="tel:0550903063">
+      <span class="ico"><svg aria-hidden="true"><use href="#i-phone"/></svg></span>
+      <span class="txt"><b data-t="call2">Appeler (2ᵉ ligne)</b><small class="nums">0550 90 30 63</small></span>
+      <svg class="go flip" aria-hidden="true"><use href="#i-go"/></svg>
+    </a>
+    <a class="link in" style="--i:8" href="https://www.instagram.com/nexdrive.dz/" target="_blank" rel="noopener">
+      <span class="ico"><svg aria-hidden="true"><use href="#i-ig"/></svg></span>
+      <span class="txt"><b>Instagram</b><small translate="no">@nexdrive.dz</small></span>
+      <svg class="go flip" aria-hidden="true"><use href="#i-go"/></svg>
+    </a>
+    <a class="link in" style="--i:9" href="https://www.tiktok.com/@nexdrive31" target="_blank" rel="noopener">
+      <span class="ico"><svg aria-hidden="true"><use href="#i-tt"/></svg></span>
+      <span class="txt"><b>TikTok</b><small translate="no">@nexdrive31</small></span>
+      <svg class="go flip" aria-hidden="true"><use href="#i-go"/></svg>
+    </a>
+    <a class="link in" style="--i:10" href="https://www.google.com/maps/place/ND+NEX+DRIVE+location+de+voiture+premium/@35.7255745,-0.5934612,17z/data=!3m1!4b1!4m6!3m5!1s0xd7e63002df54d19:0x782a09088b7dde0d!8m2!3d35.7255745!4d-0.5934612" target="_blank" rel="noopener">
+      <span class="ico"><svg aria-hidden="true"><use href="#i-pin"/></svg></span>
+      <span class="txt"><b data-t="route">Itinéraire</b><small data-t="addr">Rond-point du Méridien, Akid Lotfi, Oran</small></span>
+      <svg class="go flip" aria-hidden="true"><use href="#i-go"/></svg>
+    </a>
+    <a class="link in" style="--i:11" href="https://nexdrive-oran.netlify.app/" target="_blank" rel="noopener">
+      <span class="ico"><svg aria-hidden="true"><use href="#i-web"/></svg></span>
+      <span class="txt"><b data-t="site">Le site complet</b><small>nexdrive-oran.netlify.app</small></span>
+      <svg class="go flip" aria-hidden="true"><use href="#i-go"/></svg>
+    </a>
+  </div>
+
+  <section class="in" style="--i:12" aria-labelledby="strip-title">
+    <div class="strip-head"><h2 id="strip-title" data-t="garage">Au garage</h2><a href="https://nexdrive-oran.netlify.app/#flotte" target="_blank" rel="noopener" data-t="all">Tout voir</a></div>
+    <div class="strip" aria-hidden="true">
+      <div class="strip__track">
+        <figure><img src="img/ferrari-2.webp" alt="" loading="lazy" width="884" height="1100"><figcaption>Ferrari 296</figcaption></figure>
+        <figure><img src="img/cayenne-1.webp" alt="" loading="lazy" width="720" height="896"><figcaption>Porsche Cayenne</figcaption></figure>
+        <figure><img src="img/g63-night.webp" alt="" loading="lazy" width="720" height="896"><figcaption>Mercedes G 63</figcaption></figure>
+        <figure><img src="img/merc-1.webp" alt="" loading="lazy" width="910" height="1100"><figcaption>Classe C</figcaption></figure>
+        <figure><img src="img/g63-1.webp" alt="" loading="lazy" width="720" height="896"><figcaption>G 63 AMG</figcaption></figure>
+        <figure><img src="img/shop-3.webp" alt="" loading="lazy" width="884" height="1100"><figcaption>NEX DRIVE</figcaption></figure>
+        <figure><img src="img/ferrari-2.webp" alt="" loading="lazy" width="884" height="1100"><figcaption>Ferrari 296</figcaption></figure>
+        <figure><img src="img/cayenne-1.webp" alt="" loading="lazy" width="720" height="896"><figcaption>Porsche Cayenne</figcaption></figure>
+        <figure><img src="img/g63-night.webp" alt="" loading="lazy" width="720" height="896"><figcaption>Mercedes G 63</figcaption></figure>
+        <figure><img src="img/merc-1.webp" alt="" loading="lazy" width="910" height="1100"><figcaption>Classe C</figcaption></figure>
+        <figure><img src="img/g63-1.webp" alt="" loading="lazy" width="720" height="896"><figcaption>G 63 AMG</figcaption></figure>
+        <figure><img src="img/shop-3.webp" alt="" loading="lazy" width="884" height="1100"><figcaption>NEX DRIVE</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="tools in" style="--i:13">
+    <button class="tool" type="button" data-vcard><svg aria-hidden="true"><use href="#i-user"/></svg><span data-t="save">Enregistrer le contact</span></button>
+    <button class="tool" type="button" data-qr aria-expanded="false" aria-controls="qr"><svg aria-hidden="true"><use href="#i-qr"/></svg><span data-t="qr">QR code</span></button>
+    <button class="tool" type="button" data-share><svg aria-hidden="true"><use href="#i-share"/></svg><span data-t="share">Partager</span></button>
+  </div>
+  <div class="qr" id="qr" hidden>
+    <div class="qr__code" data-qr-box></div>
+    <p data-t="qrSub">Scannez pour ouvrir cette page</p>
+  </div>
+
+  <p class="foot in" style="--i:14">© <span data-year>2026</span> <span translate="no">ND NEX DRIVE</span> · <span data-t="foot">Location de voiture premium à Oran</span></p>
+</main>
+
+<div class="toast" role="status" aria-live="polite" data-toast></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+<script>
+(() => {
+  const root = document.documentElement;
+  const $ = (s) => document.querySelector(s), $$ = (s) => [...document.querySelectorAll(s)];
+  const SITE = 'https://nexdrive-oran.netlify.app/';
+  const AR = {
+    open: 'مفتوح 24/24 · وهران', tagline: 'كراء سيارات فاخرة في وهران',
+    book: 'احجز عبر واتساب', bookSub: 'السعر والتوفر برسالة واحدة', new: 'جديد 2026',
+    ferrari: '830 حصان · V6 هجين · 0–100 في 2,9 ث', wed: 'الأعراس', wedSub: 'Classe G، Rolls-Royce', fleet: 'الأسطول', fleetSub: '9 سيارات',
+    call: 'اتصل', call2: 'اتصل (الخط الثاني)', route: 'الاتجاهات', addr: 'دوار الميريديان، العقيد لطفي، وهران', site: 'الموقع الكامل',
+    garage: 'في المرآب', all: 'شاهد الكل', save: 'حفظ جهة الاتصال', qr: 'رمز QR', share: 'مشاركة', qrSub: 'امسح الرمز لفتح هذه الصفحة',
+    foot: 'كراء سيارات فاخرة في وهران',
+  };
+  const MSG = {
+    fr: { hello: 'Bonjour NEX DRIVE, je souhaite réserver une voiture.', lang: 'عربي', langAria: 'Lire en arabe', copied: 'Lien copié', saved: 'Contact téléchargé' },
+    ar: { hello: 'السلام عليكم NEX DRIVE، أريد حجز سيارة.', lang: 'FR', langAria: 'Lire en français', copied: 'تم نسخ الرابط', saved: 'تم تنزيل جهة الاتصال' },
+  };
+  const lang = () => (root.lang === 'ar' ? 'ar' : 'fr');
+
+  const apply = (l) => {
+    root.lang = l; root.dir = l === 'ar' ? 'rtl' : 'ltr';
+    $$('[data-t]').forEach((el) => { if (el.dataset.fr === undefined) el.dataset.fr = el.textContent; el.textContent = l === 'ar' ? (AR[el.dataset.t] || el.dataset.fr) : el.dataset.fr; });
+    $('[data-lang-label]').textContent = MSG[l].lang;
+    $('[data-lang]').setAttribute('aria-label', MSG[l].langAria);
+    $$('[data-wa]').forEach((a) => { a.href = `https://wa.me/213564449536?text=${encodeURIComponent(MSG[l].hello)}`; a.target = '_blank'; a.rel = 'noopener'; });
+    try { localStorage.setItem('nd-lang', l); } catch (e) {}
+  };
+  apply(lang());
+  $('[data-lang]').addEventListener('click', () => apply(lang() === 'ar' ? 'fr' : 'ar'));
+
+  const toast = (txt) => { const t = $('[data-toast]'); t.textContent = txt; t.classList.add('is-on'); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('is-on'), 2200); };
+  const pageUrl = () => (location.protocol.startsWith('http') ? location.href.split('#')[0] : SITE);
+
+  // save the agency to the phone's contacts (vCard)
+  $('[data-vcard]').addEventListener('click', () => {
+    const v = ['BEGIN:VCARD', 'VERSION:3.0', 'N:;NEX DRIVE;;;', 'FN:ND NEX DRIVE', 'ORG:ND NEX DRIVE — Location de voiture premium',
+      'TEL;TYPE=CELL,PREF:+213564449536', 'TEL;TYPE=CELL:+213550903063',
+      'ADR;TYPE=WORK:;;Rond-point du Méridien, Akid Lotfi;Oran;;;Algérie',
+      `URL:${SITE}`, 'X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/nexdrive.dz/', 'X-SOCIALPROFILE;TYPE=tiktok:https://www.tiktok.com/@nexdrive31',
+      'NOTE:Ouvert 24 h/24, face au Méridien.', 'END:VCARD'].join('\r\n');
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([v], { type: 'text/vcard' }));
+    a.download = 'NEX-DRIVE.vcf'; a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+    toast(MSG[lang()].saved);
+  });
+
+  // QR code of this page, to print at the agency
+  const qrBtn = $('[data-qr]'), qr = $('#qr');
+  qrBtn.addEventListener('click', () => {
+    const open = qr.hidden;
+    qr.hidden = !open; qrBtn.setAttribute('aria-expanded', open);
+    const box = $('[data-qr-box]');
+    if (open && !box.childElementCount && window.QRCode) new QRCode(box, { text: pageUrl(), width: 440, height: 440, colorDark: '#0a0a0b', colorLight: '#ffffff', correctLevel: QRCode.CorrectLevel.M });
+    if (open) qr.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
+  });
+
+  // share, or copy the link
+  $('[data-share]').addEventListener('click', async () => {
+    const data = { title: 'ND NEX DRIVE', text: 'Location de voiture premium à Oran', url: pageUrl() };
+    try {
+      if (navigator.share) await navigator.share(data);
+      else { await navigator.clipboard.writeText(data.url); toast(MSG[lang()].copied); }
+    } catch (e) {}
+  });
+
+  $$('[data-year]').forEach((el) => (el.textContent = new Date().getFullYear()));
+})();
+</script>
+</body>
+</html>
